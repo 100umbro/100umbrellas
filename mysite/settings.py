@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
 # Third Party
     'crispy_forms',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
@@ -128,18 +129,27 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn')
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media_cdn')
+MEDIA_URL = '/media/'
+
+
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     # '/var/www/static/',
 ]
 
+MEDIAFILES_DIRS = [
+    os.path.join(BASE_DIR, "media"),
+    # '/var/www/static/',
+]
+
+
 #REGISTRATION REDUX SETTINGS
 ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
 REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
 
-LOGIN_REDIRECT_URL = '/home'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 if DEBUG:
     SITE_ID=2
@@ -156,5 +166,3 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 
-#USer Custom Settings
-# AUTH_USER_MODEL = 'customauth.MyUser'
